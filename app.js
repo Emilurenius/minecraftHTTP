@@ -4,6 +4,8 @@ const path = require("path")
 const fs = require("fs")
 const cors = require("cors")
 const Gpio = require("onoff").Gpio
+const LED = new Gpio(4, "out")
+
 
 let buttonState = false
 
@@ -30,6 +32,11 @@ app.get("/", (req, res) => {
     res.send("Hello world")
     buttonState = !buttonState
     console.log(buttonState)
+    if (buttonState) {
+        LED.writeSync(1)
+    }else {
+        LED.writeSync(0)
+    }
 })
 
 app.get("/buttonState", (req, res) => {
