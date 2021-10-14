@@ -3,7 +3,7 @@ import requests, time
 
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(4, GPIO.OUT)
+GPIO.setup(17, GPIO.OUT)
 
 while True:
     time.sleep(0.1)
@@ -12,7 +12,7 @@ while True:
 
     if currentState:
         print("Light on")
-        GPIO.output(4, True)
+        GPIO.output(17, True)
     else:
         #print("light off")
         print(type(currentState))
