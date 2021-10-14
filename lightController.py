@@ -8,9 +8,11 @@ GPIO.setup(4, GPIO.OUT)
 while True:
     time.sleep(0.1)
     currentState = requests.get("http://localhost:3000/lightState").json()
-    print(currentState)
+    #print(currentState)
 
     if currentState == "True":
+        print("Light on")
         GPIO.output(4, True)
     else:
+        print("light off")
         GPIO.output(4, False)
