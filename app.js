@@ -27,9 +27,14 @@ console.log(`${port} registered as server port`)
 // Reading input from terminal end
 
 app.get("/", (req, res) => {
-    res.send("Hello world")
-    buttonState = !buttonState
-    console.log(buttonState)
+    res.send(`${buttonState}`)
+    console.log(req.query.state)
+    if (req.query.state == "true") {
+        buttonState = true
+    }
+    else {
+        buttonState = false
+    }
 })
 
 app.get("/lightState", (req, res) => {
