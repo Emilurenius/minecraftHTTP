@@ -10,7 +10,7 @@ while True:
     currentState = requests.get("http://localhost:3000/lightState").json()
     #print(currentState)
 
-    if currentState == "True":
+    if currentState:
         print("Light on")
         GPIO.output(4, True)
     else:
