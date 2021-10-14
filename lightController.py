@@ -16,4 +16,4 @@ while True:
     else:
         #print("light off")
         print(type(currentState))
-        GPIO.output(4, False)
+        GPIO.output(17, False)
